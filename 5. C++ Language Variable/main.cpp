@@ -315,10 +315,47 @@ int main() {
     return 0;
 }
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ যখন << " " << "years old" লিখা হয়, তখন কম্পাইলারকে বারবার << অপারেটর কল করতে হয়। তার চেয়ে " years old" (শুরুতে একটি স্পেস দিয়ে) লেখা বেশি দক্ষ।
+ যদি অনেকগুলো লাইন এমন থাকে, তবে বারবার left << setw(15) না লিখে একটি কনস্ট্যান্ট ভেরিয়েবল ব্যবহার করা যেতে পারে:
 
 
+#include <iostream>
+#include <iomanip>
+#include <string>
 
+using namespace std;
 
+int main() {
+    // কিছু স্যাম্পল ডাটা
+    string name = "Mohammad Abdullah";
+    int age = 22;
+    float height = 5.8f;
+    string university = "BUET";
+    string dept = "CSE";
+    string city = "Dhaka";
+    string hobby = "Coding";
 
+    const int w = 18; // এখানে এক জায়গায় মান পরিবর্তন করলে সব লাইনে কাজ করবে
 
+    cout << "           STUDENT PROFILE               " << endl;
+    cout << "==========================================" << endl;
 
+    cout << left << setw(w) << "Full Name"     << ": " << name << endl;
+    cout << left << setw(w) << "Age"           << ": " << age << " years old" << endl;
+    cout << left << setw(w) << "Height"        << ": " << fixed << setprecision(1) << height << " feet" << endl;
+    cout << left << setw(w) << "University"    << ": " << university << endl;
+    cout << left << setw(w) << "Department"    << ": " << dept << endl;
+    cout << left << setw(w) << "Current City"  << ": " << city << endl;
+    cout << left << setw(w) << "Favorite Hobby" << ": " << hobby << endl;
+    return 0;
+}
+
+এখানে int এবং const int এর কাজ সম্পূর্ণ আলাদা।
+int হলো একটি ডাটা টাইপের নাম (যেমন: পূর্ণসংখ্যা)। এটি প্রোগ্রামে হাজার বার ব্যবহার করা যাবে, 
+যতক্ষণ ভেরিয়েবলের নামগুলো (যেমন: num1, width, age) আলাদা থাকছে।
+
+int num1: এটি একটি সাধারণ ভেরিয়েবল যার মান চাইলে পরে পরিবর্তন করা যাবে।
+
+const int width: এটি একটি "ধ্রুবক" বা Constant। const যুক্ত করার মানে হলো, 
+কম্পিউটারকে বলা হসছে যে width এর মান পুরো প্রোগ্রামে সব সময় ১৫-ই থাকবে, এটি কেউ ভুল করেও পরিবর্তন করতে পারবে না।
