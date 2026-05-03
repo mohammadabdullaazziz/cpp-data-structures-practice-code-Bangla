@@ -34,6 +34,26 @@ int a = 5;
 !a;     // Logical NOT
 &a;     // Address
 
+C++ ল্যাঙ্গুয়েজে Unary Minus (-) অপারেটর মূলত একটি সংখ্যার বা ভ্যারিয়েবলের মানকে ঋণাত্মক (negative) বা তার বিপরীত চিহ্নে রূপান্তর করতে কাজ করে।
+এটি একটি মাত্র অপারেন্ড (operand) এর উপর কাজ করে।
+
+মান উল্টে দেওয়া: যদি একটি ভ্যারিয়েবলের মান ধনাত্মক (+) থাকে, তবে unary minus তা ঋণাত্মক (-) করে দেয়।
+বিপরীত করা: যদি ভ্যারিয়েবলের মান ইতিমধ্যেই ঋণাত্মক (-) থাকে, তবে unary minus তা ধনাত্মক (+) করে দেয়।
+     
+#include <iostream>
+using namespace std;
+int main() {
+    int a = 10;
+    int b = -a; // Unary - অপারেটর ব্যবহার
+    int c = -b; // -(-10) = 10
+
+    cout << "Original a: " << a << endl; // আউটপুট: 10
+    cout << "Unary -a: " << b << endl;   // আউটপুট: -10
+    cout << "Unary -b: " << c << endl;   // আউটপুট: 10
+    return 0;
+}
+
+
 
 👉 Binary operator দুইটি operand এর উপর কাজ করে।
 
